@@ -1,6 +1,4 @@
 // extract-asset-data.js
-console.log("Extracting asset data...");
-
 // Imports
 const Web3 = require("web3");
 const { ERC725 } = require("@erc725/erc725.js");
@@ -10,7 +8,7 @@ const LSP4Schema = require("@erc725/erc725.js/schemas/LSP4DigitalAsset.json");
 const RPC_ENDPOINT = "https://rpc.testnet.lukso.gateway.fm";
 const IPFS_GATEWAY = "https://api.universalprofile.cloud/ipfs";
 // const SAMPLE_ASSET_ADDRESS = "0x6395b330F063F96579aA8F7b59f2584fb9b6c3a5";
-const SAMPLE_ASSET_ADDRESS = "0x3F0350EaFc25Cc9185a77394B7E2440ec002e466";
+const SAMPLE_ASSET_ADDRESS = "0x42cbd824dB82D0c7b03c1AEcd10E4a38f1cEE9ED"; //rock-bear
 
 // Parameters for the ERC725 instance
 const provider = new Web3.providers.HttpProvider(RPC_ENDPOINT);
@@ -35,13 +33,18 @@ async function fetchAndReadAssetData(address) {
     const assetData = await digitalAsset.fetchData("LSP4Metadata");
     console.log(JSON.stringify(assetData, undefined, 2));
     await getAssetProperties(assetData);
-    return {
-      assetImageLinks,
-      fullSizeAssetImage,
-      assetIconLinks,
-      fullSizeIconImage,
-      assetDescription,
-    };
+    // console.log(
+    //   "assetImageLinks: ",
+    //   assetImageLinks,
+    //   "\n" + "fullSizeAssetImage: ",
+    //   fullSizeAssetImage,
+    //   "\n" + "assetIconLinks: ",
+    //   assetIconLinks,
+    //   "\n" + "fullSizeIconImage: ",
+    //   fullSizeIconImage,
+    //   "\n" + "assetDescription: ",
+    //   assetDescription
+    // );
   } catch (error) {
     console.log("Could not fetch and read asset data: ", error);
   }
@@ -105,6 +108,8 @@ async function getAssetProperties(assetJSON) {
     console.log("Could not fetch all asset properties: ", error);
   }
 }
+// debug;
+fetchAndReadAssetData(SAMPLE_ASSET_ADDRESS);
 
 module.exports = {
   fetchAndReadAssetData,
