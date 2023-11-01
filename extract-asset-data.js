@@ -6,7 +6,8 @@ const LSP4Schema = require("@erc725/erc725.js/schemas/LSP4DigitalAsset.json");
 
 // Static variables
 const RPC_ENDPOINT = "https://rpc.testnet.lukso.gateway.fm";
-const IPFS_GATEWAY = "https://api.universalprofile.cloud/ipfs";
+const IPFS_GATEWAY = "https://universalpage.dev/api/ipfs/";
+
 // const SAMPLE_ASSET_ADDRESS = "0x6395b330F063F96579aA8F7b59f2584fb9b6c3a5";
 const SAMPLE_ASSET_ADDRESS = "0x42cbd824dB82D0c7b03c1AEcd10E4a38f1cEE9ED"; //rock-bear
 
@@ -60,6 +61,9 @@ async function getAssetProperties(assetJSON) {
           assetImageData[i].url.replace("ipfs://", IPFS_GATEWAY),
         ]);
       }
+      // example: https://universalpage.dev/api/ipfs/QmXkgQgJxsuWFtZgZZxHWmoAyMBAVYYGT1CHDBSWNfw9am
+      //      https://api.universalprofile.cloud/ipfsQmV4Tbre8Pre3SRTZUopzE8VbY8SSEqtQVMfWnB1aAsnJS
+      //          https://universalpage.dev/api/ipfs/QmV4Tbre8Pre3SRTZUopzE8VbY8SSEqtQVMfWnB1aAsnJS
       console.log(
         "Asset Image Links: " +
           JSON.stringify(assetImageLinks, undefined, 2) +
