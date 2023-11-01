@@ -43,12 +43,12 @@ app.get("/get-assets", async (req, res) => {
 app.get("/get-asset-properties", async (req, res) => {
   try {
     // Call the fetchAndReadAssetData function to retrieve assets
-    const properties = await fetchAndReadAssetData(
+    const assetData = await fetchAndReadAssetData(
       "0x3F0350EaFc25Cc9185a77394B7E2440ec002e466"
     ); // Provide the address you want to fetch assets for
-
+    console.log("BE sending: ", assetData);
     // Send the assets as a JSON response
-    res.json({ properties });
+    res.json({ assetData });
   } catch (error) {
     console.error("Error fetching properties:", error);
     res.status(500).json({ error: "Internal Server Error" });

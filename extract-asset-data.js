@@ -31,20 +31,10 @@ async function fetchAndReadAssetData(address) {
   try {
     const digitalAsset = new ERC725(LSP4Schema, address, provider, config);
     const assetData = await digitalAsset.fetchData("LSP4Metadata");
+    console.log(assetData);
     console.log(JSON.stringify(assetData, undefined, 2));
     await getAssetProperties(assetData);
-    // console.log(
-    //   "assetImageLinks: ",
-    //   assetImageLinks,
-    //   "\n" + "fullSizeAssetImage: ",
-    //   fullSizeAssetImage,
-    //   "\n" + "assetIconLinks: ",
-    //   assetIconLinks,
-    //   "\n" + "fullSizeIconImage: ",
-    //   fullSizeIconImage,
-    //   "\n" + "assetDescription: ",
-    //   assetDescription
-    // );
+    return assetData;
   } catch (error) {
     console.log("Could not fetch and read asset data: ", error);
   }
@@ -57,8 +47,13 @@ async function getAssetProperties(assetJSON) {
   let assetImageData = [];
   let iconImageData = [];
   try {
-    if (assetJSON.value.LSP4Metadata.images[0]) {
-      assetImageData = assetJSON.value.LSP4Metadata.images;
+    if (
+      Array.isArray(assetJSON.value.LSP4Metadata.images) &&
+      assetJSON.value.LSP4Metadata.images[0]
+    ) {
+      // Check if 'images' is an array and if it has at least one item
+      console.log("Asset has image data \n");
+      assetImageData = assetJSON.value.LSP4Metadata.images[0]; // Access the inner array
       for (let i in assetImageData) {
         assetImageLinks.push([
           i,
@@ -108,6 +103,7 @@ async function getAssetProperties(assetJSON) {
     console.log("Could not fetch all asset properties: ", error);
   }
 }
+
 // debug;
 fetchAndReadAssetData(SAMPLE_ASSET_ADDRESS);
 
