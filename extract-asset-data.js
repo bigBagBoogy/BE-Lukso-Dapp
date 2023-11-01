@@ -29,12 +29,21 @@ let assetDescription;
  * @param address of the asset
  * @return string of the encoded data
  */
-async function fetchAssetData(address) {
+async function fetchAndReadAssetData(address) {
   try {
     const digitalAsset = new ERC725(LSP4Schema, address, provider, config);
-    return await digitalAsset.fetchData("LSP4Metadata");
+    const assetData = await digitalAsset.fetchData("LSP4Metadata");
+    console.log(JSON.stringify(assetData, undefined, 2));
+    await getAssetProperties(assetData);
+    return {
+      assetImageLinks,
+      fullSizeAssetImage,
+      assetIconLinks,
+      fullSizeIconImage,
+      assetDescription,
+    };
   } catch (error) {
-    console.log("Could not fetch asset data: ", error);
+    console.log("Could not fetch and read asset data: ", error);
   }
 }
 
@@ -96,13 +105,7 @@ async function getAssetProperties(assetJSON) {
     console.log("Could not fetch all asset properties: ", error);
   }
 }
-// Debug
-
-fetchAssetData(SAMPLE_ASSET_ADDRESS).then((assetData) => {
-  console.log(JSON.stringify(assetData, undefined, 2));
-  getAssetProperties(assetData);
-});
 
 module.exports = {
-  getAssetProperties,
+  fetchAndReadAssetData,
 };
