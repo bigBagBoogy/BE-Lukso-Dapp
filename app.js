@@ -1,10 +1,10 @@
-const express = require("express");
+import express from "express";
 const app = express();
 const port = 5000;
-const cors = require("cors");
-const { fetchAssetData } = require("./02-fetch-asset-data.js");
-const { fetchOwnedAssets } = require("./fetch-owned-assets.js");
-const { fetchAndReadAssetData } = require("./extract-asset-data.js");
+import cors from "cors";
+import { fetchAssetData } from "./02-fetch-asset-data.js";
+import { fetchOwnedAssets } from "./fetch-owned-assets.js";
+import { fetchAndReadAssetData } from "./extract-asset-data.js";
 
 app.use(cors());
 

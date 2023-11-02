@@ -1,8 +1,8 @@
 // 02-fetch-asset-data.js
 // Imports
-const { ERC725 } = require("@erc725/erc725.js");
-const LSP4Schema = require("@erc725/erc725.js/schemas/LSP4DigitalAsset.json");
-const Web3 = require("web3");
+import { ERC725 } from "@erc725/erc725.js";
+import LSP4Schema from "@erc725/erc725.js/schemas/LSP4DigitalAsset.json";
+import Web3 from "web3";
 
 // Static variables
 const RPC_ENDPOINT = "https://rpc.testnet.lukso.gateway.fm";
@@ -33,6 +33,4 @@ fetchAssetData(SAMPLE_ASSET_ADDRESS).then((assetData) =>
   console.log(JSON.stringify(assetData, undefined, 2))
 );
 
-module.exports = {
-  fetchAssetData,
-};
+export { fetchAssetData };
