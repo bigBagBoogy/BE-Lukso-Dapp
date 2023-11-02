@@ -10,6 +10,7 @@ import dotenv from "dotenv/config";
 
 const PRIVATE_KEY = process.env.MY_PRIVATE_KEY;
 const myEOA = web3.eth.accounts.privateKeyToAccount(PRIVATE_KEY);
+console.log("myEOA: ", myEOA);
 
 const lspFactory = new LSPFactory("https://rpc.testnet.lukso.network/", {
   deployKey: PRIVATE_KEY,
