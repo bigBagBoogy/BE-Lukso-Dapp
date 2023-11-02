@@ -1,7 +1,7 @@
 // 02-fetch-asset-data.js
 // Imports
 import { ERC725 } from "@erc725/erc725.js";
-import LSP4Schema from "@erc725/erc725.js/schemas/LSP4DigitalAsset.json";
+import LSP4Schema from "@erc725/erc725.js/schemas/LSP4DigitalAsset.json" assert { type: "json" };
 import Web3 from "web3";
 
 // Static variables

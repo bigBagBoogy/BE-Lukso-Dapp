@@ -22,7 +22,7 @@ await myUniversalProfile.methods
   .execute(
     0, // operation of type CALL
     "0xE8eB13e0D5C812E492df9eE925c450408559CB51", // recipient address including profiles and vaults
-    web3.utils.toWei("0.1"), // amount in LYX
+    web3.utils.toWei("0.2"), // amount in LYX
     "0x" // contract calldata, empty for regular transfer
   )
   .send({
