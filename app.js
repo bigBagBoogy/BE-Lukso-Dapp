@@ -70,10 +70,12 @@ app.post("/submit-LSP3", async (req, res) => {
     // Assume req.body contains the LSP3 data you want to submit
     const lsp3Data = req.body;
 
+    console.log("Received POST request with data:", lsp3Data);
+
     // Send a POST request to submit LSP3 metadata
     const response = await axiosInstance.post("/submit-LSP3", lsp3Data);
 
-    console.log("Receiving LSP3 metadata: ", response.data);
+    console.log("Receiving LSP3 metadata response: ", response.data);
 
     // Send the response from the server as-is
     res.json(response.data);
