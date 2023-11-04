@@ -1,0 +1,33 @@
+{
+  "name": "Maarten",
+  "description": "cool heavy metal group",
+  "links": [
+    {
+      "title": "Twitter",
+      "url": "https://twitter.com/feindura"
+    }
+  ],
+  "tags": [
+    "maarten",
+    "barbara"
+  ],
+  "avatarUrl": "ifps://QmPJESHbVkPtSaHntNVY5F6JDLW8v69M2d6khXEYGUMn7N",
+  "profileImage": [
+    {
+      "width": 179,
+      "height": 180,
+      "verificationFunction": "ipfs",
+      "verificationData": "",
+      "url": "https://universalpage.dev/api/ipfs/QmavcM6xYwxdV1iFeMoh4SSMrFnzVMrrpxAAD3Ue78Wjc5"
+    }
+  ],
+  "backgroundImage": [
+    {
+      "width": 179,
+      "height": 180,
+      "verificationFunction": "ipfs",
+      "verificationData": "",
+      "url": "https://universalpage.dev/api/ipfs/QmavcM6xYwxdV1iFeMoh4SSMrFnzVMrrpxAAD3Ue78Wjc5"
+    }
+  ]
+}

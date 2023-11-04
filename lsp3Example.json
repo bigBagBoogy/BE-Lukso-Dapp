@@ -1,0 +1,74 @@
+{
+      "name": "string",
+      "description": "string",
+      "links": [
+        {
+          "title": "string",
+          "url": "string"
+        }
+      ],
+      "tags": ["string", "string"],
+      "avatar": [
+        {
+          "verificationFunction": "keccak256(bytes)",
+          "verificationData": "string",
+          "url": "string",
+          "fileType": "string"
+        },
+        {
+          "verificationFunction": "ecdsa",
+          "verificationData": "string",
+          "verificationSource": "string",
+          "url": "string",
+          "fileType": "string"
+        },
+        {
+          "address": "Address",
+          "tokenId": "32bytes"
+        }
+      ],
+      "profileImage": [
+        {
+          "width": "Number",
+          "height": "Number",
+          "verificationFunction": "keccak256(bytes)",
+          "verificationData": "string",
+          "url": "string"
+        },
+        {
+          "width": "Number",
+          "height": "Number",
+          "verificationFunction": "ecdsa",
+          "verificationData": "string",
+          "verificationSource": "string",
+          "url": "string"
+        },
+        {
+          "address": "Address",
+          "tokenId": "32bytes"
+        }
+      ],
+      "backgroundImage": [
+        {
+          "width": "Number",
+          "height": "Number",
+          "verificationFunction": "keccak256(bytes)",
+          "verificationData": "string",
+          "url": "string"
+        },
+        {
+          "width": "Number",
+          "height": "Number",
+          "verificationFunction": "ecdsa",
+          "verificationData": "string",
+          "verificationSource": "string",
+          "url": "string"
+        },
+        {
+          "address": "Address",
+          "tokenId": "32bytes"
+        }
+      ]
+    }
+ 
+  

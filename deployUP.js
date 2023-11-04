@@ -17,20 +17,11 @@ const lspFactory = new LSPFactory("https://rpc.testnet.lukso.network/", {
   chainId: 4201, // LUKSO Testnet
 });
 
-async function createUniversalProfile() {
+async function createUniversalProfile(lsp3Profile) {
+  console.log("creating Universal Profile...");
   const deployedContracts = await lspFactory.UniversalProfile.deploy({
     controllerAddresses: [myEOA.address],
-    lsp3Profile: {
-      name: "My Universal Profile",
-      description: "My Cool Universal Profile",
-      tags: ["Public Profile"],
-      links: [
-        {
-          title: "My Website",
-          url: "https://my-website.com/",
-        },
-      ],
-    },
+    lsp3Profile: lsp3Profile,
   });
 
   const myUPAddress = deployedContracts.LSP0ERC725Account.address;
@@ -40,4 +31,4 @@ async function createUniversalProfile() {
 
   return deployedContracts;
 }
-createUniversalProfile();
+export { createUniversalProfile };

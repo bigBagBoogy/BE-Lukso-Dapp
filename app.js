@@ -2,10 +2,12 @@ import express from "express";
 const app = express();
 const port = 5000;
 import cors from "cors";
+import fs from "fs";
 import axios from "axios"; // Import Axios
 import { fetchAssetData } from "./02-fetch-asset-data.js";
 import { fetchOwnedAssets } from "./fetch-owned-assets.js";
 import { fetchAndReadAssetData } from "./extract-asset-data.js";
+import { createUniversalProfile } from "./deployUP.js";
 
 app.use(cors());
 app.use(express.json());
@@ -17,6 +19,32 @@ const axiosInstance = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+});
+
+app.post("/submit-LSP3", async (req, res) => {
+  try {
+    console.log("Received POST request with data:", req.body);
+    const lsp3Profile = req.body;
+
+    // Validate the incoming data (You can add more specific checks)
+    if (typeof lsp3Profile !== "object") {
+      throw new Error("Invalid LSP3 data.");
+    }
+    // Write the LSP3 profile data to a file
+    fs.writeFileSync("lsp3Profile.json", JSON.stringify(lsp3Profile, null, 2));
+    // Call the createUniversalProfile function with the LSP3 profile data
+    // const result = await createUniversalProfile(lsp3Profile);
+    // console.log("Universal Profile created:", result);
+
+    // Handle the response as needed
+    // You can send a response back to the client or perform other actions here
+
+    // Example: Sending a success response
+    res.json({ success: "Universal Profile created successfully" });
+  } catch (error) {
+    console.error("Error posting LSP3 metadata:", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 app.get("/assets", async (req, res) => {
@@ -55,32 +83,12 @@ app.get("/get-asset-properties", async (req, res) => {
     const response = await axiosInstance.get(
       "/extract-asset-data/0x3F0350EaFc25Cc9185a77394B7E2440ec002e466"
     );
-    console.log("BE sending: ", response.data);
+    // console.log("BE sending: ", response.data);
 
     // Send the assets as a JSON response
     res.json({ assetData: response.data });
   } catch (error) {
     console.error("Error fetching properties:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
-app.post("/submit-LSP3", async (req, res) => {
-  try {
-    // Assume req.body contains the LSP3 data you want to submit
-    const lsp3Data = req.body;
-
-    console.log("Received POST request with data:", lsp3Data);
-
-    // Send a POST request to submit LSP3 metadata
-    const response = await axiosInstance.post("/submit-LSP3", lsp3Data);
-
-    console.log("Receiving LSP3 metadata response: ", response.data);
-
-    // Send the response from the server as-is
-    res.json(response.data);
-  } catch (error) {
-    console.error("Error posting LSP3 metadata:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
