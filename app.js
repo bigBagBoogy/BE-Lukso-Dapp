@@ -31,10 +31,10 @@ app.post("/submit-LSP3", async (req, res) => {
       throw new Error("Invalid LSP3 data.");
     }
     // Write the LSP3 profile data to a file
-    fs.writeFileSync("lsp3Profile.json", JSON.stringify(lsp3Profile, null, 2));
+    // fs.writeFileSync("lsp3Profile.json", JSON.stringify(lsp3Profile, null, 2));
     // Call the createUniversalProfile function with the LSP3 profile data
-    // const result = await createUniversalProfile(lsp3Profile);
-    // console.log("Universal Profile created:", result);
+    const result = await createUniversalProfile(lsp3Profile);
+    console.log("Universal Profile created:", result);
 
     // Handle the response as needed
     // You can send a response back to the client or perform other actions here
