@@ -9,11 +9,13 @@ import Web3 from "web3";
 const web3 = new Web3("https://rpc.testnet.lukso.network");
 import { LSPFactory } from "@lukso/lsp-factory.js";
 import dotenv from "dotenv/config";
+import fs from "fs";
 
-async function createUniversalProfile(lsp3Profile) {
+async function createUniversalProfile() {
   const PRIVATE_KEY = process.env.MY_PRIVATE_KEY;
   const myEOA = web3.eth.accounts.privateKeyToAccount(PRIVATE_KEY);
   console.log("myEOA: ", myEOA);
+  const lsp3Profile = fs.readFileSync("lsp3Profile.json", "utf8");
 
   const lspFactory = new LSPFactory("https://rpc.testnet.lukso.network/", {
     deployKey: PRIVATE_KEY,
