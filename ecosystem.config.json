@@ -1,0 +1,9 @@
+{
+    "apps": [    
+      {
+        "name": "deployUP",
+        "script": "deployUP.js",
+        "interpreter": "nvm use 16.0.0 && node"        
+      }
+    ]
+  }
