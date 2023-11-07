@@ -4,9 +4,9 @@ const port = 5000;
 import cors from "cors";
 import fs from "fs";
 import axios from "axios"; // Import Axios
-import { fetchAssetData } from "./02-fetch-asset-data.js";
-import { fetchOwnedAssets } from "./fetch-owned-assets.js";
-import { fetchAndReadAssetData } from "./extract-asset-data.js";
+// import { fetchAssetData } from "./02-fetch-asset-data.js";
+// import { fetchOwnedAssets } from "./fetch-owned-assets.js";
+// import { fetchAndReadAssetData } from "./extract-asset-data.js";
 import { createUniversalProfile } from "./deployUP.js";
 
 app.use(cors());
