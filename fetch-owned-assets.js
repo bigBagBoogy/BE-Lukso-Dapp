@@ -32,9 +32,9 @@ async function fetchOwnedAssets(address) {
 }
 
 // Debug
-fetchOwnedAssets(SAMPLE_PROFILE_ADDRESS).then((ownedAssets) =>
-  console.log(JSON.stringify(ownedAssets, undefined, 2))
-);
+// fetchOwnedAssets(SAMPLE_PROFILE_ADDRESS).then((ownedAssets) =>
+//   console.log(JSON.stringify(ownedAssets, undefined, 2))
+// );
 // fetchOwnedAssets(SAMPLE_PROFILE_ADDRESS1).then((ownedAssets) =>
 //   console.log(JSON.stringify(ownedAssets, undefined, 2))
 // );

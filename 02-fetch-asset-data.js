@@ -29,8 +29,8 @@ async function fetchAssetData(address) {
 }
 
 // Debug
-fetchAssetData(SAMPLE_ASSET_ADDRESS).then((assetData) =>
-  console.log(JSON.stringify(assetData, undefined, 2))
-);
+// fetchAssetData(SAMPLE_ASSET_ADDRESS).then((assetData) =>
+//   console.log(JSON.stringify(assetData, undefined, 2))
+// );
 
 export { fetchAssetData };

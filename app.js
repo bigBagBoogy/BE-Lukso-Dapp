@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Define an Axios instance with your API base URL
 const axiosInstance = axios.create({
-  baseURL: "https://your-api-endpoint.com", // Replace with your actual API endpoint
+  baseURL: "http://localhost:5000",
   timeout: 10000, // Set a reasonable timeout
   headers: {
     "Content-Type": "application/json",

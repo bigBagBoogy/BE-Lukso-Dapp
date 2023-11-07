@@ -111,6 +111,6 @@ async function getAssetProperties(assetJSON) {
 }
 
 // debug;
-fetchAndReadAssetData(SAMPLE_ASSET_ADDRESS);
+// fetchAndReadAssetData(SAMPLE_ASSET_ADDRESS);
 
 export { fetchAndReadAssetData };
