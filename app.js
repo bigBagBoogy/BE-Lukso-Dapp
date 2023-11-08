@@ -36,9 +36,6 @@ app.post("/submit-LSP3", async (req, res) => {
     const result = await createUniversalProfile(lsp3Profile);
     console.log("Universal Profile created:", result);
 
-    // Handle the response as needed
-    // You can send a response back to the client or perform other actions here
-
     // Example: Sending a success response
     res.json({ success: "Universal Profile created successfully" });
   } catch (error) {

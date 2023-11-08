@@ -1,6 +1,6 @@
 {
-  "name": "Graspop Metal Meeting Community",
-  "description": "cool heavy metal group",
+  "name": "Digital Expat group",
+  "description": "a group for expats and digital nomads",
   "links": [
     {
       "title": "twitter",
@@ -8,11 +8,10 @@
     }
   ],
   "tags": [
-    "graspop",
-    "metal",
-    "Belgium",
-    "festival",
-    "Dessel"
+    "community",
+    "travel",
+    "co-working",
+    "meetup"
   ],
   "avatarUrl": "ipfs://QmPJESHbVkPtSaHntNVY5F6JDLW8v69M2d6khXEYGUMn7N",
   "profileImage": [

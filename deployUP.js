@@ -10,10 +10,11 @@ const web3 = new Web3("https://rpc.testnet.lukso.network");
 import { LSPFactory } from "@lukso/lsp-factory.js";
 import dotenv from "dotenv/config";
 import fs from "fs";
-console.log("running deployUP.js");
+// console.log("running deployUP.js");
 
-async function createUniversalProfile(lsp3Profile) {
-  console.log("running deployUP.js");
+async function createUniversalProfile() {
+  const lsp3Profile = JSON.parse(process.env.LSP3_PROFILE);
+  console.log("running deployUP with: ", lsp3Profile);
   const PRIVATE_KEY = process.env.MY_PRIVATE_KEY;
   const myEOA = web3.eth.accounts.privateKeyToAccount(PRIVATE_KEY);
   console.log("myEOA: ", myEOA);
