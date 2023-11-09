@@ -1,8 +1,0 @@
-{
-    "apps": [    
-      {
-        "name": "deployUP",
-        "script": "start-deployUP.sh"
-      }
-    ]
-  }
