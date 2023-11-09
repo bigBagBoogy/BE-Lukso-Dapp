@@ -36,17 +36,24 @@ const config = { ipfsGateway: IPFS_GATEWAY };
  * @return string of the encoded data
  */
 async function fetchAssetData(address) {
-  try {
-    const digitalAsset = new ERC725(LSP4Schema, address, provider, config);
-    return await digitalAsset.fetchData("LSP4Metadata");
-  } catch (error) {
-    console.log("Could not fetch asset data: ", error);
-  }
+  return new Promise(async (resolve, reject) => {
+    console.log(`Handler start`);
+    try {
+      console.log(`Fetching asset data for address: ${address}`);
+      const digitalAsset = new ERC725(LSP4Schema, address, provider, config);
+      const assetData = await digitalAsset.fetchData("LSP4Metadata");
+      console.log("Asset data fetched successfully");
+      resolve(assetData);
+    } catch (error) {
+      console.log("Could not fetch asset data: ", error);
+      reject(error);
+    }
+  });
 }
 
 // Debug
-fetchAssetData(SAMPLE_ASSET_ADDRESS).then((assetData) =>
-  console.log(JSON.stringify(assetData, undefined, 2))
-);
+// fetchAssetData(SAMPLE_ASSET_ADDRESS).then((assetData) =>
+//   console.log(JSON.stringify(assetData, undefined, 2))
+// );
 
 export { fetchAssetData };

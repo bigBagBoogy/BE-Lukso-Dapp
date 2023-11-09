@@ -127,3 +127,131 @@ async function getAssetProperties(assetJSON) {
 // fetchAndReadAssetData(SAMPLE_ASSET_ADDRESS);
 
 export { fetchAndReadAssetData };
+
+// example output:
+// maarten@LAPTOP-L1E8IBDS:~/node-express/BE-Lukso-Dapp$ node extract-asset-data.js
+// {
+//   key: '0x9afb95cacc9f95858ec44aa8c3b685511002e30ae54415823f406128b85b238e',
+//   name: 'LSP4Metadata',
+//   value: {
+//     LSP4Metadata: {
+//       description: 'Purple Bear is always rocking hard',
+//       links: [Array],
+//       images: [Array],
+//       icon: [Array],
+//       assets: null
+//     }
+//   }
+// }
+// {
+//   "key": "0x9afb95cacc9f95858ec44aa8c3b685511002e30ae54415823f406128b85b238e",
+//   "name": "LSP4Metadata",
+//   "value": {
+//     "LSP4Metadata": {
+//       "description": "Purple Bear is always rocking hard",
+//       "links": [
+//         {
+//           "title": "LUKSO Docs",
+//           "url": "https://docs.lukso.tech"
+//         }
+//       ],
+//       "images": [
+//         [
+//           {
+//             "width": 1377,
+//             "height": 1380,
+//             "hashFunction": "keccak256(bytes)",
+//             "hash": "0x85c86c6973984773751f3272904501355a7f21008c8d96f06e74c26cb40fedfd",
+//             "url": "ipfs://QmV4Tbre8Pre3SRTZUopzE8VbY8SSEqtQVMfWnB1aAsnJS"
+//           },
+//           {
+//             "width": 1021,
+//             "height": 1024,
+//             "hashFunction": "keccak256(bytes)",
+//             "hash": "0x1e92171ad3ef6aca6a8fb2fc1350f46f334a5133524a533e9789d627a65b2d92",
+//             "url": "ipfs://Qmak2WfMvmbVLv6xNGcJXB9Q2gzr2vVXygxL2Ap9LUSRiD"
+//           },
+//           {
+//             "width": 638,
+//             "height": 640,
+//             "hashFunction": "keccak256(bytes)",
+//             "hash": "0xe89c2399437e694cbc9664a8fca731f54d34c5b60ba87cb854f9203811d2382d",
+//             "url": "ipfs://QmebprVfDei9M342JDWwZF2APA5ySN28RT6vkg9pmHy4NE"
+//           },
+//           {
+//             "width": 319,
+//             "height": 320,
+//             "hashFunction": "keccak256(bytes)",
+//             "hash": "0xee18de3c69c04e859a3588e7c9aafcbdbc077950b195606d4bd8a7b355a3a1a4",
+//             "url": "ipfs://QmSN1pJ4q11ytuUr9tPtfxycvqQFSLV8DSCBYsHwVmziNN"
+//           },
+//           {
+//             "width": 179,
+//             "height": 180,
+//             "hashFunction": "keccak256(bytes)",
+//             "hash": "0x5eaa7b6ed96ccd3d6587a74e61afc308b4a72b6751d471ba38f06becc2c5998e",
+//             "url": "ipfs://QmavcM6xYwxdV1iFeMoh4SSMrFnzVMrrpxAAD3Ue78Wjc5"
+//           }
+//         ]
+//       ],
+//       "icon": [
+//         {
+//           "width": 256,
+//           "height": 238,
+//           "hashFunction": "keccak256(bytes)",
+//           "hash": "0xf8ff716c69f26fa49433234a5a94fc32e92d407b50b8239a696ea4dfa9ae279d",
+//           "url": "ipfs://QmfMD1hTKHsgFFq3qiarcSFsYUZwPXZp2n31m8mhBEKLNw"
+//         },
+//         {
+//           "width": 32,
+//           "height": 29,
+//           "hashFunction": "keccak256(bytes)",
+//           "hash": "0x8e52197a2d3213630a441f6663a4394cc5ff091582427a331eb8f6a1184ea0d8",
+//           "url": "ipfs://QmXUDP5NZSPGJ4g769YJ7ufjeQ8qCAUnroUqWbKGDvXLZN"
+//         }
+//       ],
+//       "assets": null
+//     }
+//   }
+// }
+// Asset has image data
+
+// Asset Image Links: [
+//   [
+//     "0",
+//     "https://universalpage.dev/api/ipfs/QmV4Tbre8Pre3SRTZUopzE8VbY8SSEqtQVMfWnB1aAsnJS"
+//   ],
+//   [
+//     "1",
+//     "https://universalpage.dev/api/ipfs/Qmak2WfMvmbVLv6xNGcJXB9Q2gzr2vVXygxL2Ap9LUSRiD"
+//   ],
+//   [
+//     "2",
+//     "https://universalpage.dev/api/ipfs/QmebprVfDei9M342JDWwZF2APA5ySN28RT6vkg9pmHy4NE"
+//   ],
+//   [
+//     "3",
+//     "https://universalpage.dev/api/ipfs/QmSN1pJ4q11ytuUr9tPtfxycvqQFSLV8DSCBYsHwVmziNN"
+//   ],
+//   [
+//     "4",
+//     "https://universalpage.dev/api/ipfs/QmavcM6xYwxdV1iFeMoh4SSMrFnzVMrrpxAAD3Ue78Wjc5"
+//   ]
+// ]
+
+// Full Size Asset Image Link: https://universalpage.dev/api/ipfs/QmV4Tbre8Pre3SRTZUopzE8VbY8SSEqtQVMfWnB1aAsnJS
+
+// Asset Icon Links: [
+//   [
+//     "0",
+//     "https://universalpage.dev/api/ipfs/QmfMD1hTKHsgFFq3qiarcSFsYUZwPXZp2n31m8mhBEKLNw"
+//   ],
+//   [
+//     "1",
+//     "https://universalpage.dev/api/ipfs/QmXUDP5NZSPGJ4g769YJ7ufjeQ8qCAUnroUqWbKGDvXLZN"
+//   ]
+// ]
+
+// Full Size Icon Image Link: https://universalpage.dev/api/ipfs/QmfMD1hTKHsgFFq3qiarcSFsYUZwPXZp2n31m8mhBEKLNw
+
+// Asset Description: Purple Bear is always rocking hard

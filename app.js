@@ -4,17 +4,17 @@ const port = 5000;
 import cors from "cors";
 import fs from "fs";
 import axios from "axios"; // Import Axios
-// import { fetchAssetData } from "./02-fetch-asset-data.js";
-// import { fetchOwnedAssets } from "./fetch-owned-assets.js";
-// import { fetchAndReadAssetData } from "./extract-asset-data.js";
+import { fetchAssetData } from "./02-fetch-asset-data.js";
+import { fetchOwnedAssets } from "./fetch-owned-assets.js";
+import { fetchAndReadAssetData } from "./extract-asset-data.js";
 import { createUniversalProfile } from "./deployUP.js";
 
 app.use(cors());
 app.use(express.json());
 
 // Define an Axios instance with your API base URL
-const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000",
+const axiosInstanceWithoutBaseURL = axios.create({
+  baseURL: "http://localhost:5000", // Use the same base URL
   timeout: 10000, // Set a reasonable timeout
   headers: {
     "Content-Type": "application/json",
@@ -74,18 +74,33 @@ app.get("/get-assets", async (req, res) => {
   }
 });
 
-app.get("/get-asset-properties", async (req, res) => {
+app.get("/extract-asset-data/:address", async (req, res) => {
   try {
-    // Call the fetchAndReadAssetData function to retrieve assets
-    const response = await axiosInstance.get(
-      "/extract-asset-data/0x3F0350EaFc25Cc9185a77394B7E2440ec002e466"
-    );
-    // console.log("BE sending: ", response.data);
+    console.log("Handler start");
+    const { address } = req.params;
+    console.log(`Received request for address: ${address}`);
+
+    // Call the fetchAndReadAssetData function with the provided address
+    const assetData = await fetchAndReadAssetData(address);
 
     // Send the assets as a JSON response
-    res.json({ assetData: response.data });
+    res.json({ assetData });
   } catch (error) {
     console.error("Error fetching properties:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+///////   Profile getter   ///////////////
+app.get("/fetch-profile/:address", async (req, res) => {
+  try {
+    const { address } = req.params;
+    console.log(`Received request for address: ${address}`);
+    const profileData = await fetchProfile(address);
+    // Send the profile as a JSON response
+    res.json({ profileData });
+  } catch (error) {
+    console.error("Error fetching profile:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
