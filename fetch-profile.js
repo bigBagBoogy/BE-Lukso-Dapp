@@ -1,7 +1,9 @@
 import { ERC725 } from "@erc725/erc725.js";
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
+
 const __dirname = dirname(new URL(import.meta.url).pathname);
+
 // Construct the path directly
 const jsonFilePath = join(
   process.cwd(),
@@ -10,11 +12,11 @@ const jsonFilePath = join(
 );
 const jsonContent = readFileSync(jsonFilePath, "utf-8");
 const lsp3ProfileSchema = JSON.parse(jsonContent);
+
 // Now you can use erc725schema as needed
 
-async function fetchProfile(address) {
-  // address = '0x9139def55c73c12bcda9c44f12326686e3948634'
-  // Initatiate erc725.js
+const fetchProfile = async (address) => {
+  // Initiate erc725.js
   const erc725js = new ERC725(
     lsp3ProfileSchema,
     address,
@@ -24,27 +26,30 @@ async function fetchProfile(address) {
     }
   );
 
-  // Download and verify the profile metadata JSON file
-  // let profileMetaData = await erc725js.fetchData('LSP3Profile');
-  // console.log(profileMetaData);
-
   // Fetch all of the profile's issued assets
-  let issuedAssetsDataKey = await erc725js.fetchData("LSP12IssuedAssets[]");
-  console.log(issuedAssetsDataKey);
+  const issuedAssetsDataKey = await erc725js.fetchData("LSP12IssuedAssets[]");
 
   // Fetch all owned assets of the profile
-  let receivedAssetsDataKey = await erc725js.fetchData("LSP5ReceivedAssets[]");
-  console.log(receivedAssetsDataKey);
+  const receivedAssetsDataKey = await erc725js.fetchData(
+    "LSP5ReceivedAssets[]"
+  );
 
   // Fetch the profile's universal receiver
-  let universalReceiverDataKey = await erc725js.fetchData(
+  const universalReceiverDataKey = await erc725js.fetchData(
     "LSP1UniversalReceiverDelegate"
   );
-  console.log(universalReceiverDataKey);
 
   // Get all profile data from the profile smart contract
-  let profileData = await erc725js.getData();
-  console.log(profileData);
-}
+  const profileData = await erc725js.getData();
+
+  return {
+    issuedAssetsDataKey,
+    receivedAssetsDataKey,
+    universalReceiverDataKey,
+    profileData,
+  };
+};
+
+export { fetchProfile };
 // debug:
 // fetchProfile("0x9139def55c73c12bcda9c44f12326686e3948634");

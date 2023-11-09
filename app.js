@@ -8,6 +8,7 @@ import { fetchAssetData } from "./02-fetch-asset-data.js";
 import { fetchOwnedAssets } from "./fetch-owned-assets.js";
 import { fetchAndReadAssetData } from "./extract-asset-data.js";
 import { createUniversalProfile } from "./deployUP.js";
+import { fetchProfile } from "./fetch-profile.js";
 
 app.use(cors());
 app.use(express.json());
@@ -97,6 +98,7 @@ app.get("/fetch-profile/:address", async (req, res) => {
     const { address } = req.params;
     console.log(`Received request for address: ${address}`);
     const profileData = await fetchProfile(address);
+    console.log("Maarten Profile Data:", profileData);
     // Send the profile as a JSON response
     res.json({ profileData });
   } catch (error) {
