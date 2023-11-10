@@ -15,7 +15,8 @@ const lsp3ProfileSchema = JSON.parse(jsonContent);
 
 // Now you can use erc725schema as needed
 
-const fetchProfile = async (address) => {
+const fetchProfile = async () => {
+  const address = "0x9139def55c73c12bcda9c44f12326686e3948634";
   console.log(`Received address in fetchProfile: ${address}`);
   // Initiate erc725.js
   const erc725js = new ERC725(
@@ -58,4 +59,4 @@ const fetchProfile = async (address) => {
 
 export { fetchProfile };
 // debug:
-// fetchProfile("0x9139def55c73c12bcda9c44f12326686e3948634");
+fetchProfile();
