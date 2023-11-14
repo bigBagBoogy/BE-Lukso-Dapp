@@ -22,7 +22,7 @@ const RPC_ENDPOINT = "https://rpc.testnet.lukso.gateway.fm";
 const IPFS_GATEWAY = "https://universalpage.dev/api/ipfs/";
 
 // const SAMPLE_ASSET_ADDRESS = "0x6395b330F063F96579aA8F7b59f2584fb9b6c3a5";
-const SAMPLE_ASSET_ADDRESS = "0x42cbd824dB82D0c7b03c1AEcd10E4a38f1cEE9ED"; //rock-bear
+const SAMPLE_ASSET_ADDRESS = "0x84284c6121BFF349a852017A5Fc82de33Ef3b81C"; //GMM token
 
 // Parameters for the ERC725 instance
 const provider = new Web3.providers.HttpProvider(RPC_ENDPOINT);

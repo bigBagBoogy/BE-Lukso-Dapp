@@ -41,6 +41,13 @@ async function fetchOwnedAssets(address) {
     return console.log("This is not an ERC725 Contract: ", error);
   }
 }
+// async function readAssetData() {
+//   let ownedAssetsArray = fetchOwnedAssets(SAMPLE_PROFILE_ADDRESS);
+//   for (let i = 0, i < ownedAssetsArray, i++) {
+//     if 
+//   }
+//   return assetData;
+// }
 
 // Debug
 // fetchOwnedAssets(SAMPLE_PROFILE_ADDRESS).then((ownedAssets) =>
