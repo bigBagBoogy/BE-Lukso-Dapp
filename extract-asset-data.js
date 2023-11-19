@@ -78,6 +78,7 @@ async function getAssetProperties(assetJSON) {
       //      https://api.universalprofile.cloud/ipfsQmV4Tbre8Pre3SRTZUopzE8VbY8SSEqtQVMfWnB1aAsnJS
       //          https://universalpage.dev/api/ipfs/QmV4Tbre8Pre3SRTZUopzE8VbY8SSEqtQVMfWnB1aAsnJS
       // https://universalpage.dev/api/ipfs/QmaXQSZFoUPM43kND6EUPSnJF7NjpkW9LwW6J9vRki5QDh
+      // https://universalpage.dev/api/ipfs/QmcqVLGFRpweZCfhoG7vGkChc45FNSfSvkmaq3XnH3uk2Q
 
       console.log(
         "Asset Image Links: " +
